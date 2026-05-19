@@ -208,12 +208,6 @@ Examples:
 
 ---
 
-# 📸 Screenshots
-
-Add your project screenshots here later.
-
----
-
 # 🔮 Future Improvements
 
 - MIDI to WAV conversion
