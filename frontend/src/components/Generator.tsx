@@ -45,7 +45,7 @@ export default function Generator() {
 
         localStorage.setItem("generatedMidi", data.file);
 
-        setAudioUrl(data.file);
+        setAudioUrl(`${import.meta.env.VITE_API_URL}${data.file}`);
       }, 500);
 
     } catch (error) {

@@ -27,8 +27,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# serve MIDI files from the backend output folder regardless of CWD
-app.mount("/output", StaticFiles(directory=str(BASE_DIR / "output")), name="output")
+# Serve MIDI files
+app.mount("/output", StaticFiles(directory="output"), name="output")
 
 
 @app.get("/")
@@ -39,12 +39,14 @@ def home():
 @app.post("/generate")
 def generate():
     file_id = str(uuid.uuid4())
+
     output_file = BASE_DIR / "output" / f"{file_id}.mid"
+
     output_file.parent.mkdir(parents=True, exist_ok=True)
 
     generate_music(str(output_file))
 
     return {
         "message": "music generated",
-        "file": f"http://localhost:8000/output/{file_id}.mid"
+        "file": f"/output/{file_id}.mid"
     }
