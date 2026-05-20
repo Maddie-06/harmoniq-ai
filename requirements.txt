@@ -1,7 +1,7 @@
 fastapi
 uvicorn
-tensorflow
-keras
+tensorflow-cpu==2.15.0
+keras==2.15.0
 numpy
 music21
 python-multipart
